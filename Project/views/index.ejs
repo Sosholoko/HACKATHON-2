@@ -4,10 +4,176 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(38, 51, 80);
+            color: white;
+            font-family: 'Mulish', sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+        #namewel{
+            margin-left: 20px;
+            font-size: 30px;
+        }
+        .general{
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            
+        }
+        #fc{
+            justify-content: center;
+            flex-direction: column;
+            /* border-right: 1px solid white; */
+            height: 720px;
+            width: 200px;
+            float: left;
+            
+        }
+        #fc a{
+            text-align: center;
+            margin-left: 15px;
+        }
+        #fc div{
+            padding-bottom: 50px;
+        }
+        #fc div a{
+            text-decoration: none;
+            color: white;
+        }
+        #sc{
+            width: 850px;
+            border-left: .2px solid rgb(143, 143, 143);
+            border-right: .2px solid rgb(134, 132, 132);
+            overflow-x: scroll;
+        }
+        #tc{
+            /* border-left: 1px solid white;  */
+            width: 350px;
+        }
+        .tweet-box{
+            border-top: 0.3px solid rgb(149, 148, 148);
+            border-bottom: 0.3px solid rgb(158, 157, 157);
+            height: 150px;
+        }
+        textarea{
+            height: 100px;
+            width: 700px;
+            resize: none;
+            background-color: transparent;
+            font-size: 25px;
+            border: none;
+            color: white;
+        }
+        textarea:focus{
+            outline: none;
+        }
+        .follow{
+            border: .5px solid rgb(40, 65, 117);
+            border-radius: 10px;
+            margin-left: 7px;
+            margin-right: 7px;
+            margin-top: 50px;
+            background-color: rgb(53, 62, 82);
+        }
+        li{
+            border: .3px solid rgb(92, 92, 92);
+            height: 80px;
+            border-radius: 7px;
+            font-size: 12px;
+            padding-left: 10px;
+        }
+        li button{
+            float: right;
+        }
+        .fa-twitter{
+            font-size: 35px;
+            margin-left: 30px;
+            margin-top: 30px;
+        }
+        li p img{
+            border-radius: 50%;
+            border: .5px solid white;
+        }
+        .tweet-box img{
+            border-radius: 50%;
+            border-top: 0.3px solid white;
+            border-bottom: 0.3px solid white;
+        }
+        .tweet-box button{
+            margin-left: 100px;
+            border-radius: 15px;
+            border: none;
+            background-color: rgb(212, 103, 0);
+            color: white;
+            padding: 7px;
+            width: 60px;
+        }
+        #fc a i{
+            font-size: 22px;
+            margin-right: 10px;
+        }
+        .follow li button{
+            border-radius: 15px;
+            border: .5px solid rgb(212, 103, 0);
+            background-color: transparent;
+            color: rgb(212, 103, 0);
+            padding: 5px;
+            width: 60px;
+            margin-right: 10px;
+            margin-top: 12px;
+        }
+        #titfol{
+            padding-left: 10px;
+            font-size: 22px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello <%= name %></h1>
+    
+<div class="general">
+    <div id="fc">
+        <i class="fab fa-twitter"></i><br><br><br><br><br>
+        <div>
+        <a href="#"><i class="fas fa-home"></i> Home</a><br></div>
+        <div>
+        <a href="#"><i class="fas fa-hashtag"></i> Explore</a><br></div>
+        <div>
+        <a href="#"><i class="far fa-bell"></i> Notification</a><br></div>
+        <div>
+        <a href="#"><i class="far fa-bookmark"></i> Bookmarks</a><br></div>
+        <div>
+        <a href="#"><i class="far fa-user"></i> Profile</a><br></div>
+        <div>
+        <a href="#"><i class="fas fa-ellipsis-h"></i> More</a></div>
+    </div>
+    <div id="sc"><br>
+        <p><p id="namewel">Hello <%= name %></></p>
+        <div class="tweet-box">
+            <textarea placeholder="What's happening ?"></textarea>
+            <img  id="phlogo" src="#"><button type="button">Tweet</button>
+        </div>
+        <div class="container">
+
+        </div>
+    </div>
+    <div id="tc">
+        <div class="follow">
+            <p id="titfol">Who to follow</p>
+            <li><p><img src="#" height="20px" width="20px">  Harry Potter<button type="button">Follow</button></p><p>@hzzhj</p></li>
+            <li><p><img src="#" height="20px" width="20px">  Jim Halpert<button type="button">Follow</button></p><p>@hzzhj</p></li>
+            <li><p><img src="#" height="20px" width="20px">  Rick Sanchez<button type="button">Follow</button></p><p>@hzzhj</p></li>
+            <li><p><img src="#" height="20px" width="20px">  Homer Simpson<button type="button">Follow</button></p><p>@hzzhj</p></li>
+        </div>
+    </div>
+</div>
 </body>
 <script src="/reload/reload.js"></script>
 </html>
