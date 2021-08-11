@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/stylelog.css">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(38, 38, 104);
+            color: white;
+            text-align: center;
+        }
+        form{
+            border: 1px solid white;
+            border-radius: 10px;
+            width: 300px;
+            height: 150px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #us{
+            padding-top: 35px;
+            padding-bottom: 10px;
+        }
+        #us input{
+            border-radius: 5px;
+            border: none;
+            padding: 3px;
+            text-align: center;
+        }
+        #pw input{
+            border-radius: 5px;
+            border: none;
+            padding: 3px;
+            text-align: center;
+        }
+        
+        button{
+            margin-top: 15px;
+            padding: 5px;
+            background-color: rgb(89, 134, 89);
+            color: white;
+            border-radius: 5px;
+            border: none;
+        }
+        a{
+            color: white;
+            font-size: 15px;
+            text-decoration: none;
+            
+        }
+        #err{
+            color: red;
+            background-color: rgb(158, 106, 106);
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 5px;
+        }
+        
+    </style>
+</head>
+<body><br><br><br><br>
+    <h1>Login to your account</h1><br><br>
+    <p id="err"><% if(messages.error){%>
+        <%= messages.error %>
+        <% }%></p>
+    <form action="/login" method="POST">
+        <div id="us">
+            <label for="uname">Username :</label>
+            <input type="uname" id="uname" name="uname" placeholder="Username" required>
+        </div>
+        <div id="pw">
+            <label for="password">Password :</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+        </div>
+        <button type="submit">Login</button>
+    </form><br>
+    <a href="/register">Don't have any account ? Register now</a>
+</body>
+</html>
