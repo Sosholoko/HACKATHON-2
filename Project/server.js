@@ -20,6 +20,7 @@ env.config();
 
 app.set('view engine', 'ejs');
 app.use(exp.urlencoded({extended: false}))
+app.use('/', exp.static(__dirname + '/public'))
 app.use(flash())
 app.use(session({
     secret: process.env.SESSION_SECRET,
@@ -31,7 +32,10 @@ app.use(passport.session())
 
 
 app.get('/', (req, res)=>{
-    res.render('index.ejs', {name: req.user.name})
+    res.redirect('/login')
+})
+app.get('/home', (req,res)=>{
+    res.render('home.ejs', {name: req.user.uname})
 })
 app.get('/login', (req, res)=>{
     res.render('login.ejs')
@@ -58,7 +62,7 @@ app.post('/register', async (req,res)=>{
     console.log(users)
 })
 app.post('/login', passport.authenticate('local', {
-    successRedirect : '/',
+    successRedirect : '/home',
     failureRedirect: '/login',
     failureFlash: true
 }))

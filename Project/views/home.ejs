@@ -45,6 +45,9 @@
             text-align: center;
             margin-left: 15px;
         }
+        #fc a:hover{
+            color: rgb(0, 126, 243);
+        }
         #fc div{
             padding-bottom: 50px;
         }
@@ -53,7 +56,7 @@
             color: white;
         }
         #hlogo{
-            color: rgb(212, 103, 0);
+            color: rgb(0, 126, 243);
         }
 
         #sc{
@@ -79,6 +82,7 @@
             font-size: 25px;
             border: none;
             color: white;
+            padding-left: 10px;
         }
         textarea:focus{
             outline: none;
@@ -104,13 +108,13 @@
         .fa-twitter{
             font-size: 35px;
             margin-left: 30px;
-            margin-top: 30px;
+            margin-top: 50px;
         }
         li p img{
             border-radius: 50%;
             border: .5px solid white;
         }
-        .tweet-box img{
+        .tweet-box img, #pp{
             border-radius: 50%;
             /* border-top: 0.3px solid white; */
             /* border-bottom: 0.3px solid white; */
@@ -158,11 +162,12 @@
             font-size: 22px;
         }
         .tweets{
-            border-top: .5px solid rgb(117, 117, 117);
-            background-color: rgb(11, 68, 202);
+            border-top: .3px solid rgb(119, 119, 119);
+            border-bottom: .3px solid gray;
+            background-color: rgb(30, 41, 65);;
             margin-bottom: 10px;
             margin-top: 5px;
-            border-radius: 10px;
+            padding-bottom: 5px;
         }
         .tweets p{
             margin-left: 20px;
@@ -177,9 +182,40 @@
             margin-right: 50px;
             margin-bottom: 5px;
         }
-        .fas:hover{
+        #twid{
+            font-size: 10px;
+            color: gray;
+            margin-left: 8px;
+        }
+        #timestamp{
+            font-size: 10px;
+            margin-left: 490px;
+            width: 30px;
+        }
+        #logout{
+            margin-left: 50px;
+            padding: 10px;
+            background-color: transparent;
+            color:  rgb(177, 72, 72);;
+            border: 1px solid rgb(161, 46, 46);
+            border-radius: 15px;
+        }
+        #logout:hover{
             cursor: pointer;
-            color: black;
+            background-color: rgb(185, 93, 93);
+            color:  white;
+            border: .5px solid rgb(185, 93, 93);
+        }
+        .fa-trash:hover{
+            cursor: pointer;
+            color: rgb(69, 221, 138);
+        }
+        .fa-heart:hover{
+            color: rgb(182, 79, 79);
+        }
+        #welmes{
+            position: relative;
+            bottom: 14px;
         }
     </style>
 </head>
@@ -191,7 +227,7 @@
         <div>
         <a href="#"><span id="hlogo"><i class="fas fa-home"></i> Home</span></a><br></div>
         <div>
-        <a href="#"><i class="fas fa-hashtag"></i> Explore</a><br></div>
+        <a href="#"><i class="fas fa-hashtag" onclick="test()"></i> Explore</a><br></div>
         <div>
         <a href="#"><i class="far fa-bell"></i> Notification</a><br></div>
         <div>
@@ -200,9 +236,12 @@
         <a href="#"><i class="far fa-user"></i> Profile</a><br></div>
         <div>
         <a href="#"><i class="fas fa-ellipsis-h"></i> More</a></div>
+        <form action="/">
+            <button type="submit" value="Log Out" id="logout">Log Out</button>
+        </form>
     </div>
     <div id="sc"><br>
-        <p><p id="namewel">Welcome back <span id="name"><%= name %></span> ;)</p></p>
+        <p><p id="namewel"><img id="pp" src="/pic/IMG_0286.jpg" height="50px" width="50px"> <span id="welmes">Welcome back <span id="name"><%= name %></span> ;)</span></p></p>
         <div class="tweet-box">
             <textarea id="twit" placeholder="What's happening ?"></textarea>
             <i class="fas fa-image"> </i><button id="btn" type="button">Tweet</button>
@@ -214,10 +253,10 @@
     <div id="tc">
         <div class="follow">
             <p id="titfol">Who to follow</p>
-            <li><p><img src="#" height="20px" width="20px">  Harry Potter<button type="button">Follow</button></p><p>@hzzhj</p></li>
-            <li><p><img src="#" height="20px" width="20px">  Jim Halpert<button type="button">Follow</button></p><p>@hzzhj</p></li>
-            <li><p><img src="#" height="20px" width="20px">  Rick Sanchez<button type="button">Follow</button></p><p>@hzzhj</p></li>
-            <li><p><img src="#" height="20px" width="20px">  Homer Simpson<button type="button">Follow</button></p><p>@hzzhj</p></li>
+            <li><p><img src="/pic/hpprofile.jpg" height="25px" width="25px">  Harry Potter<button type="button">Follow</button></p><p>@harrypotReal</p></li>
+            <li><p><img src="/pic/jim.jpeg" height="25px" width="25px">  Jim Halpert<button type="button">Follow</button></p><p>@Jimhal</p></li>
+            <li><p><img src="/pic/rick.png" height="25px" width="25px">  Rick Sanchez<button type="button">Follow</button></p><p>@Labidubdub</p></li>
+            <li><p><img src="/pic/home.jpg" height="25px" width="25px">  Homer Simpson<button type="button">Follow</button></p><p>@homerdonut</p></li>
         </div>
     </div>
 </div>
@@ -228,6 +267,8 @@
     let timel = document.getElementById('container');
     let uname = '<%- JSON.stringify(name)%>';
     let uname2 = JSON.parse(uname);
+
+    let arr = [];
 
     field.addEventListener('keypress', added);
     function added(e){
@@ -242,18 +283,46 @@
         console.log(field.value);
         console.log(uname2);
         let value = field.value;
+        let time = new Date();
+        let timestamph = time.getHours();
+        let timestampm = time.getMinutes();
+        if( timestampm < 10){
+            timestampm = '0' + timestampm;
+        }
+        console.log(timestamph);
+        console.log(timestampm);
         if (value.length <= 0){
         alert("Please fill up the fields")
         }
         else{
             let tweet = document.createElement('div');
-            tweet.setAttribute('class', 'tweets');
-            tweet.innerHTML = `<p>${uname2} <span id='twid'>@${uname2}5657</span></p>
+            arr.push(tweet);
+            console.log(arr);
+            tweet.setAttribute('id', arr.indexOf(tweet));
+            tweet.setAttribute('class', 'tweets' );
+            tweet.innerHTML = `<p><img id="pp" src="/pic/IMG_0286.jpg" height="20px" width="20px"> ${uname2} <span id='twid'>@${uname2}5657</span> <span id="timestamp">${timestamph} : ${timestampm}</span></p>
                                 <p>${value}</p><br>
-                                <i class="far fa-comment"></i> <i class="far fa-heart"></i> <i class="far fa-retweet"></i> <i class="fas fa-trash"></i> `;
+                                <i class="far fa-comment"></i> <i class="far fa-heart"></i> <i class="far fa-retweet"></i> <i class="fas fa-trash" onclick="deleting(event)"></i> `;
             timel.appendChild(tweet);
+            field.value = '';
         };
 
     }
+    function test(){
+        console.log('OK');
+    }
+
+    function deleting(e){
+    var checkin = confirm('Do you want to delete the selected tweet ?')
+    if( checkin == true){
+        e.target.parentNode.remove();
+        arr.shift();
+    }
+    else{
+        null;
+    }
+    
+};
+
 </script>
 </html>

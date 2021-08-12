@@ -4,18 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/css/stylelog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Document</title>
     <style>
         body{
-            background-color: rgb(38, 38, 104);
+            background-color: rgb(38, 51, 80);
             color: white;
             text-align: center;
+            font-family: 'Mulish', sans-serif;
         }
         form{
             border: 1px solid white;
+            background-color: rgb(54, 127, 196);
             border-radius: 10px;
-            width: 300px;
-            height: 400px;
+            width: 900px;
+            height: 450px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -32,8 +39,12 @@
         }
         a{
             color: white;
-            font-size: 15px;
+            font-size: 12px;
             text-decoration: none;
+            position: relative;
+            bottom: 80px;
+            right: 200px;
+            
         }
         button{
             padding: 5px;
@@ -42,33 +53,99 @@
             border-radius: 5px;
             border: none;
         }
+        #cred{
+            height: 424px;
+            width: 350px;
+            float: right;
+            border: 1px solid white;
+            border-top-right-radius:10px;
+            border-bottom-right-radius:10px;
+            background-color: rgb(46, 66, 109);
+        }
+        #cred input{
+            text-align: center;
+            padding: 8px;
+            width: 200px;
+        }
+        #cred input:focus{
+            outline: none;
+        }
+        #cred button{
+            padding: 15px;
+            border-radius: 25px;
+            font-size: 15px;
+            width: 120px;
+            font-weight: bold;
+            animation: 1s;
+            transition: .5s;
+        }
+        #cred button:hover{
+            background-color: rgb(6, 131, 248);
+            color: white;
+            animation: 1s;
+            transition: .5s;
+        }
+        #info{
+            position: relative;
+            width: 500px;
+            float: left;
+            
+        }
+        #info h2{
+            font-weight: lighter;
+        }
+        #twipa{
+            font-size: 30px;
+        }
+        #twitop{
+            position: relative;
+            right: 500px;
+            font-size: 40px;
+            top: 20px;
+        }
+        #twiti{
+            font-size: 20px;
+        }
+        #reg{
+            color: rgb(1, 162, 255);
+        }
     </style> 
 </head>
-<body><br><br><br><br>
-    <h1>Create a new account</h1>
+<body>
+    <i class="fab fa-twitter" id="twitop"><span id="twiti">twitter.</span></i>
+    <br><br><br><br><br><br><br>
+    
     <form action="/register" method="POST">
+        <div id="info"><br><br><br>
+            <h1>Welcome to Twitter</h1><br><br>
+            <h2>Join Twitter today.</h2>
+            <i class="fab fa-twitter" id="twipa"></i>
+        </div>
+        <div id="cred">
+            <br><br><br>
         <div id="na">
-            <label for="name">Name</label><br>
-            <input type="text" id="name" name="name" required>
+            <!-- <label for="name">Name</label><br> -->
+            <input type="text" id="name" name="name" placeholder="Name" required>
         </div>
         <div>
-            <label for="lname">Lastname</label><br>
-            <input type="text" id="lname" name="lname" >
+            <!-- <label for="lname">Lastname</label><br> -->
+            <input type="text" id="lname" name="lname" placeholder="Last Name" required >
         </div>
         <div>
-            <label for="email">Email</label><br>
-            <input type="email" id="email" name="email" required>
+            <!-- <label for="email">Email</label><br> -->
+            <input type="email" id="email" name="email" required placeholder="Email">
         </div>
         <div>
-            <label for="uname">Username</label><br>
-            <input type="text" id="uname" name="uname" >
+            <!-- <label for="uname">Username</label><br> -->
+            <input type="text" id="uname" name="uname" placeholder="Username" required>
         </div>
         <div>
-            <label for="password">Password</label><br>
-            <input type="password" id="password" name="password" required>
+            <!-- <label for="password">Password</label><br> -->
+            <input type="password" id="password" name="password" required placeholder="Password">
         </div>
-        <button type="submit">Register</button>
+        <button type="submit">Register →</button>
+    </div>
     </form><br>
-    <a href="/login">Already have an account ? Log in here</a>
+    <a href="/login">Already have an account ? <span id="reg">Log in here</span></a>
 </body>
 </html>
