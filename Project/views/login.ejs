@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,500;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/public/css/stylelog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Document</title>
@@ -15,11 +17,11 @@
             background-color: rgb(38, 51, 80);
             color: white;
             text-align: center;
-            font-family: 'Mulish', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
         form{
             border: 1px solid rgb(211, 208, 208);
-            background-color: rgb(38, 105, 160);
+            background-color: rgb(54, 127, 196);
             border-radius: 10px;
             width: 700px;
             height: 350px;
@@ -63,7 +65,7 @@
         }
         
         button{
-            margin-top: 0px;
+            margin-bottom: 80px;
             margin-left: 20px;
             padding: 12px;
             background-color: rgb(89, 134, 89);
@@ -112,13 +114,14 @@
             left: 20px;
         }
         #text h2{
-            font-weight: lighter;
+            font-weight: bold;
         }
         #twipa{
             font-size: 20px;
         }
         #text h1{
             position: relative;
+            font-weight: lighter;
             top: 50px;
         }
         #cred{
@@ -128,7 +131,7 @@
             left: 120px;
             border-top-right-radius:10px;
             border-bottom-right-radius:10px;
-            bottom: 204px;
+            bottom: 258px;
             float: right;
             margin-right: 120px;
             border-left: .5px solid white;
@@ -144,14 +147,14 @@
             font-size: 20px;
         }
         #reg{
-            color: rgb(0, 136, 248);
+            color: rgb(1, 162, 255);
         }
         
     </style>
 </head>
 <body>
     <i class="fab fa-twitter" id="twitop"><span id="twiti">twitter.</span></i>
-    <br><br><br><br>
+    <br><br><br>
     <!-- <h1>Login to your account</h1><br><br> -->
     <br><br><br><br>
     <p id="err"><% if(messages.error){%>
@@ -159,18 +162,18 @@
         <% }%></p>
     <form action="/login" method="POST">
         <div id="text">
-            <h2>Welcome back to Twitter </h2><i class="fab fa-twitter" id="twipa"></i><br>
-            <h1>Log In</h1>
+            <h2>Welcome back to Twitter® </h2><i class="fab fa-twitter" id="twipa"></i><br>
+            <h1>Log In <i class="fas fa-sign-in-alt"></i></h1>
         </div>
     <div id="cred">
-        <div id="us"><br><br><br><br><br>
+        <div id="us"><br><br><br><br>
             <!-- <label for="uname">Username :</label> -->
             <input type="uname" id="uname" name="uname" placeholder="Username" required>
         </div><br><br>
         <div id="pw">
             <!-- <label for="password">Password :</label> -->
             <input type="password" id="password" name="password" placeholder="Password" required>
-        </div><br><br><br>
+        </div><br>
         <button type="submit">Log in →</button>
     </div>
         
