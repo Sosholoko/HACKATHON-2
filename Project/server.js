@@ -32,7 +32,7 @@ app.use(passport.session())
 
 
 app.get('/', (req, res)=>{
-    res.redirect('/login')
+    res.render('index.ejs');
 })
 app.get('/home', (req,res)=>{
     res.render('home.ejs', {name: req.user.uname})

@@ -86,6 +86,7 @@
             border: none;
             color: white;
             padding-left: 10px;
+            padding-top: 10px;
         }
         textarea:focus{
             outline: none;
@@ -101,6 +102,7 @@
         li{
             /* border: .3px solid rgb(132, 133, 136); */
             height: 80px;
+            list-style: none;
             border-radius: 7px;
             font-size: 12px;
             padding-left: 10px;
@@ -124,7 +126,7 @@
         }
         .tweet-box button{
             position: relative;
-            bottom: 50px;
+            bottom: 55px;
             right: 30px;
             margin-left: 100px;
             border-radius: 15px;
@@ -133,11 +135,20 @@
             color: white;
             padding: 7px;
             width: 60px;
+            animation: transform .5s;
+            transition: .5s;
+        }
+        .tweet-box button:hover{
+            animation: .5s;
+            transform: scale(1.1);
+            transition: .5s;
+            background-color: white;
+            color:  rgb(3, 129, 212);
         }
         .fa-image{
             position: relative;
             font-size: 25px;
-            bottom: 45px;
+            bottom: 50px;
             left: 50px;
         }
         #fc a i{
@@ -223,7 +234,16 @@
             color: rgb(69, 221, 138);
         }
         .fa-heart:hover{
+            cursor: pointer;
             color: rgb(182, 79, 79);
+        }
+        .fa-comment:hover{
+            cursor: pointer;
+            color: teal;
+        }
+        .fa-retweet:hover{
+            color: blueviolet;
+            cursor: pointer;
         }
         #welmes{
             position: relative;
@@ -245,6 +265,9 @@
         }
         #searchb:focus{
             outline: none;
+        }
+        .fa-check-circle{
+            color: rgb(0, 102, 255);
         }
     </style>
 </head>
@@ -281,18 +304,28 @@
             </div>
         <div class="fakecont" id="fakecont">
             <div id="ftweet">
-                <p><img id="pp" src="/pic/donald.jpeg" height="20px" width="20px"> Donald J.Trump <span id='twid'>@donaldtrreal</span><span id="timestamp">11 : 32 </span></p>
-                <p id="text">Fellow americans I'll be back soon at the White House!<br>Be sure to be ready for this day..</p><br>
+                <p><img id="pp" src="/pic/donald.jpeg" height="20px" width="20px"> Donald J.Trump <i class="far fa-check-circle"></i> <span id='twid'>@donaldtrreal</span><span id="timestamp">11 : 32 </span></p>
+                <p id="text">Fellow americans I'll be back soon at the White House!<br>Be sure to be ready for this day..<br>I'll get Biden evicted. <br>Ps: Don't ask how </p><br>
                 <i class="far fa-comment"></i> <i class="far fa-heart"></i> <i class="far fa-retweet"></i> <i class="fas fa-trash"></i>
             </div> 
             <div id="ftweet">
-                <p><img id="pp" src="/pic/elon.jpg" height="20px" width="20px"> Elon Musk <span id='twid'>@elonmusK</span><span id="timestamp">15 : 12 </span></p>
+                <p><img id="pp" src="/pic/elon.jpg" height="20px" width="20px"> Elon Musk <i class="far fa-check-circle"></i><span id='twid'>@elonmusK</span><span id="timestamp">15 : 12 </span></p>
                 <p id="text">Baby Doge, doo, doo, doo, doo,<br>Baby Doge, doo, doo, doo, doo,<br>baby Doge, doo, doo, doo, doo</p><br>
                 <i class="far fa-comment"></i> <i class="far fa-heart"></i> <i class="far fa-retweet"></i> <i class="fas fa-trash"></i>
             </div> 
             <div id="ftweet">
-                <p><img id="pp" src="/pic/tim.jpg" height="20px" width="20px"> Tim Cook <span id='twid'>@donaldtrreal</span><span id="timestamp">06 : 52 </span></p>
+                <p><img id="pp" src="/pic/tim.jpg" height="20px" width="20px"> Steeve Job <i class="far fa-check-circle"></i><span id='twid'>@timcookApple</span><span id="timestamp">06 : 52 </span></p>
                 <p id="text">Android suck... Nothing to add</p><br>
+                <i class="far fa-comment"></i> <i class="far fa-heart"></i> <i class="far fa-retweet"></i> <i class="fas fa-trash"></i>
+            </div> 
+            <div id="ftweet">
+                <p><img id="pp" src="/pic/bibi.jpg" height="20px" width="20px"> Benjamin Netanyahu <i class="far fa-check-circle"></i><span id='twid'>@benynetanya</span><span id="timestamp">16 : 36 </span></p>
+                <p id="text">Israel is the first country to have vaccinated all of its<br>citizens ! We can be proud</p><br>
+                <i class="far fa-comment"></i> <i class="far fa-heart"></i> <i class="far fa-retweet"></i> <i class="fas fa-trash"></i>
+            </div> 
+            <div id="ftweet">
+                <p><img id="pp" src="/pic/mik.jpg" height="20px" width="20px"> Michael Scott <span id='twid'>@michaelScarn</span><span id="timestamp">05 : 55 </span></p>
+                <p id="text">Occasionally, I'll hit sombody with my car.<br>So sue me.</p><br>
                 <i class="far fa-comment"></i> <i class="far fa-heart"></i> <i class="far fa-retweet"></i> <i class="fas fa-trash"></i>
             </div> 
         </div>
